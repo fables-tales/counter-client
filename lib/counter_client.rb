@@ -1,4 +1,4 @@
-require "http"
+require "lhttp"
 
 class CounterClient
   def get(key)
@@ -12,7 +12,7 @@ class CounterClient
   private
 
   def http_client
-    Http.with_headers("Content-Length" => "0")
+    LHttp
   end
 
   def service_base_url
