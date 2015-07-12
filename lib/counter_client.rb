@@ -1,6 +1,10 @@
 require "lhttp"
 
 class CounterClient
+  def initialize(http)
+    @http = http
+  end
+
   def get(key)
     http_client.get("#{service_base_url}#{key}").to_s.to_i
   end
@@ -12,7 +16,7 @@ class CounterClient
   private
 
   def http_client
-    LHttp
+    @http
   end
 
   def service_base_url
